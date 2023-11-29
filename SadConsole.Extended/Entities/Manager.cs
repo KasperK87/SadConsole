@@ -276,9 +276,9 @@ namespace SadConsole.Entities
             if (_entityByPosition.ContainsKey(entity.Position))
             {
                 var entities = _entityByPosition[entity.Position];
-                var newList = new Entity[entities.Length];
-                entities.CopyTo(newList, 0);
-                newList[newList.Length-1] = entity;
+                var newList = new Entity[entities.Length+1];
+                newList[0] = entity;
+                entities.CopyTo(newList, 1);
                 _entityByPosition[entity.Position] = newList;
             }
             else
